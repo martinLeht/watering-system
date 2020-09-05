@@ -1,5 +1,5 @@
 #include "Arduino.h"
-#include "SoilMoistureSensor.h"
+#include "soil_moisture_sensor.h"
 
 int getMoistureLevel() {
   int sensorRead = analogRead(SOIL_PIN);

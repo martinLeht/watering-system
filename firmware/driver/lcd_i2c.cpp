@@ -1,6 +1,15 @@
 #include "Arduino.h"
 #include "lcd_i2c.h"
 
+void displayWaterLevel(const char *txt) {
+  lcd.clear();
+  
+  lcd.setCursor(0, 0);
+  lcd.print("Water Level:");
+  lcd.setCursor(0, 1);
+  lcd.print(txt);
+}
+
 void displayMoistureLevel(int moisture) {
   lcd.clear();
   
@@ -9,16 +18,14 @@ void displayMoistureLevel(int moisture) {
 
   lcd.setCursor(0, 1);
   lcd.print("|");
-  for (int i=0; i < 14; ++i) {
-    if (moisture >= i) {
+  for (int i=14; i > 0; --i) {
+    if (moisture <= i) {
       lcd.print("=");
     } else {
       lcd.print(" ");
     }
   }
   lcd.print("|");
- 
-  delay(3000);
 }
 
 void displayTemperatureAndHumidity(float temp, float humidity) {
@@ -33,8 +40,6 @@ void displayTemperatureAndHumidity(float temp, float humidity) {
   lcd.print("Hum: ");
   lcd.print(humidity, 1);
   lcd.print("%");
-  
-  delay(3000);
 }
 
 void printTopRow(const char *txt) {

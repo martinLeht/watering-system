@@ -4,6 +4,8 @@
 #include <LiquidCrystal_I2C.h>
 
 extern LiquidCrystal_I2C lcd;
+
+void displayWaterLevel(const char *txt);
 void displayMoistureLevel(int moisture);
 void displayTemperatureAndHumidity(float temp, float humidity);
 void printTopRow(const char *txt);
