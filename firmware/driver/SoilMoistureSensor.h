@@ -1,0 +1,7 @@
+#ifndef _SOILMOISTURESENSOR_H
+#define _SOILMOISTURESENSOR_H
+
+#define SOIL_PIN A0
+int getMoistureLevel();
+
+#endif _SOILMOISTURESENSOR_H
